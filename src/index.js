@@ -117,9 +117,9 @@ function init() {
       tl.reversed(!tl.reversed());
 
       if (btnMenu.classList.contains('w--open')) {
-        // scrollBarElement.updatePluginOptions('modal', { open: false });
+        scrollBarElement.updatePluginOptions('modal', { open: false });
       } else {
-        // scrollBarElement.updatePluginOptions('modal', { open: true });
+        scrollBarElement.updatePluginOptions('modal', { open: true });
       }
     });
   }
