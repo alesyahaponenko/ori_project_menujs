@@ -100,6 +100,7 @@ function init() {
     tl.to(line1, { rotate: 45, y: 0, background: 'white' })
       .to(line2, { rotate: -45, y: 0, background: 'white' }, 0)
       .to(line3, { y: 4, opacity: 0, background: 'white' }, 0)
+      .fromTo('.navbar-white-beyond', { position: 'absolute' }, { position: 'fixed' })
       .reverse();
 
     btnMenu.addEventListener('click', (e) => {
