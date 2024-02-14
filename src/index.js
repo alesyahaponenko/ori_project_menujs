@@ -66,24 +66,10 @@ function init() {
     const btnMenu = document.querySelector('.menu-button.w-nav-button');
 
     let tl = gsap.timeline({ paused: true });
-    tl.fromTo(
-      line1,
-      { rotate: 0, y: 6, background: 'black' },
-      { rotate: 45, y: 0, background: 'white', duration: 0.3 }
-    );
-    tl.fromTo(
-      line2,
-      { rotate: 0, y: 0, background: 'black' },
-      { rotate: -45, y: 0, background: 'white', duration: 0.3 },
-      0
-    );
-    tl.fromTo(
-      line3,
-      { y: -6, opacity: 1, background: 'black' },
-      { y: 4, opacity: 0, background: 'white', duration: 0.3 },
-      0
-    );
-    tl.reverse();
+    tl.to(line1, { rotate: 45, y: 0, background: 'white' })
+      .to(line2, { rotate: -45, y: 0, background: 'white' }, 0)
+      .to(line3, { y: 4, opacity: 0, background: 'white' }, 0)
+      .reverse();
 
     btnMenu.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -100,20 +86,12 @@ function init() {
       tl.reversed(!tl.reversed());
 
       if (btnMenu.classList.contains('w--open')) {
-        document.querySelector('body').style.overflowY = 'auto';
-        if (document.querySelector('.wrapscroll')) {
-          document.querySelector('.wrapscroll').style.overflowY = 'auto';
-        }
+        // scrollBarElement.updatePluginOptions('modal', { open: false });
       } else {
-        document.querySelector('body').style.overflowY = 'hidden';
-        if (document.querySelector('.wrapscroll')) {
-          document.querySelector('.wrapscroll').style.overflowX = 'hidden';
-          document.querySelector('.wrapscroll').style.overflowY = 'hidden';
-        }
+        // scrollBarElement.updatePluginOptions('modal', { open: true });
       }
     });
   }
 
   clickMenuBtn();
-  // });
 }
